@@ -13,9 +13,9 @@
     require_once "../server/utils/creds.php";
     require_once "../server/utils/mysql.php";
 
-    $creds = new Creds();
-    $mysql = new MySQLDatabase($creds);
+    $player_id = $_COOKIE["player_id"];
 
+    require_once "../server/utils/gameinit.php";
     
     
 

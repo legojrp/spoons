@@ -12,3 +12,23 @@ table cards_xxxxxx
     card_value
 
 
+
+
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    gamename VARCHAR(255),
+    num_wins INT DEFAULT 0,
+    in_game VARCHAR(8)
+);
+
+CREATE TABLE game_list (
+    game_id INT AUTO_INCREMENT PRIMARY KEY,
+    game_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    join_code VARCHAR(255) NOT NULL,
+    active BOOLEAN DEFAULT TRUE,
+    creator_user_id INT,
+    FOREIGN KEY (creator_user_id) REFERENCES users(user_id)
+);
+

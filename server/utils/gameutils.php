@@ -91,7 +91,7 @@ class GameUtils {
 
     function playerJoined($player_id) {
         $this->mysql->insert("game_$this->id", array("players" => $player_id));
-        $this->mysql->update("users", array("in_game" => "$this->id"), "id = $player_id");
+        $this->mysql->update("users", array("in_game" => "$this->id"), "user_id = $player_id");
     }
 
     function playerLeft($player_id) {
@@ -103,7 +103,37 @@ class GameUtils {
         return $this->id;
     }
 
-
+    function initCards() {
+        $creds = new Creds();
+        $mysql = new MySQLDatabase($creds);
+        $mysql->createTable("cards_$this->id", "card_id int(11) NOT NULL AUTO_INCREMENT, card_loc varchar(255) NOT NULL, card_name varchar(255) NOT NULL, card_value int(11) NOT NULL, PRIMARY KEY (card_id)");
+        
+        $cards = json_decode(file_get_contents("cards.json"), true);
+        foreach ($cards as $card) {
+            $mysql->insert("cards_$this->id", array(
+                "card_loc" => $card["location"],
+                "card_name" => $card["name"],
+                "card_value" => $card["value"]
+            ));
+        }
+        
+    }
     
-
-?>
+    function shuffleCards() {
+        $creds = new Creds();
+        $mysql = new MySQLDatabase($creds);
+        $players = $mysql->select("cards_$this->id", "players");
+        
+        for ($i = 0; $i < count($players); $i++) {
+            for ($j = 0; $j < 4; $j++) {
+                $random_index = rand(0, 51);
+                if ($mysql->select("cards_$this->id", "card_loc", "card_id = $random_index")[0]["card_loc"] == "deck") {
+                    $mysql->update("cards_$this->id", array("card_loc" => "hand_" . $players[$i]["player_id"]) , "card_id = $random_index");
+                }
+                else {
+                    $j -= 1;
+                }
+            }
+        }
+    }
+}
