@@ -1,0 +1,13 @@
+table game_xxxxxx
+    player name
+    player role
+    player has_spoon
+    player id
+
+
+table cards_xxxxxx
+    card_id
+    card_position
+    card_value
+
+
