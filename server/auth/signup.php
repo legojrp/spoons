@@ -12,8 +12,7 @@
 
     $mysql->insert("users", ["username" => $username, "password" => $password, "gamename" => $gamename]);
 
-    echo "success";
+    
     
 
-
-?>
+require_once "common.php";

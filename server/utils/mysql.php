@@ -88,10 +88,11 @@ class MySQLDatabase {
      *
      * @param string $query The SQL query to execute.
      * @throws Exception If there is an error executing the SQL query.
-     * @return void
+     * @return array The result of the query.
      */
     function query($query) {
-        $this->conn->query($query);
+        $result = $this->conn->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
         /**
@@ -105,4 +106,6 @@ class MySQLDatabase {
         }
         return true;
     }
+
+    
 }

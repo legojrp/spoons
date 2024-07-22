@@ -3,7 +3,8 @@ table game_xxxxxx
     player role
     player has_spoon
     player id
-
+    player position
+    
 
 table cards_xxxxxx
     card_id

@@ -10,18 +10,15 @@
 
     <h2>Join Code: 
     <?php 
-    require_once "utils/creds.php";
-    require_once "utils/mysql.php";
+    require_once "../server/utils/creds.php";
+    require_once "../server/utils/mysql.php";
 
     $creds = new Creds();
     $mysql = new MySQLDatabase($creds);
-    
-    require_once "utils/idmaker.php";
-    $id = idmaker();
-    $mysql->insert("game_list", array("join_code" => $id, "active" => "1"));
-    $mysql->createTable("game_$id", "players varchar(255) NOT NULL, player_id int(11) NOT NULL AUTO_INCREMENT, PRIMARY KEY (player_id)");
 
-    echo $id;
+    
+    
+
     ?>
     </h2>
 
@@ -29,7 +26,7 @@
     <script>
         var interval = setInterval(function(){
             $.ajax({
-                url: 'game_lobby.php',
+                url: '../server/game_lobby.php',
                 data: {join_code: "<?php echo $id; ?>"},
                 type: 'GET',
                 success: function(response) {

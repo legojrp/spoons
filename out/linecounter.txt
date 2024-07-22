@@ -328,3 +328,122 @@ server/utils/creds.php, code is 10, comment is 0, blank is 1.
 server/utils/idmaker.php, code is 7, comment is 0, blank is 0.
 server/utils/mysql.php, code is 42, comment is 54, blank is 12.
 ===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2024-07-22 12:00:36
+count workspace : /Users/john/Documents/GitHub/spoons
+total files : 18
+total code lines : 909
+total comment lines : 57
+total blank lines : 125
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .php|            311|             54|             73|     34|
+   |               |            221|              3|             47|     24|
+   |           .txt|              9|              0|              4|   0.99|
+   |          .json|            366|              0|              1|     40|
+   |            .md|              2|              0|              0|   0.22|
+   -------------------------------------------------------------------------
+.gitattributes, code is 2, comment is 0, blank is 0.
+client/auth/signup.php, code is 20, comment is 0, blank is 0.
+client/game.php, code is 60, comment is 0, blank is 0.
+client/host.php, code is 40, comment is 0, blank is 11.
+dblayout.txt, code is 9, comment is 0, blank is 4.
+LICENSE, code is 219, comment is 3, blank is 47.
+README.md, code is 2, comment is 0, blank is 0.
+server/auth/login.php, code is 13, comment is 0, blank is 4.
+server/auth/signup.php, code is 11, comment is 0, blank is 8.
+server/game/cards.json, code is 366, comment is 0, blank is 1.
+server/game/startup.php, code is 35, comment is 0, blank is 11.
+server/game_lobby.php, code is 11, comment is 0, blank is 6.
+server/handler.php, code is 14, comment is 0, blank is 7.
+server/index.php, code is 16, comment is 0, blank is 1.
+server/utils/creds.php, code is 10, comment is 0, blank is 1.
+server/utils/gameutils.php, code is 31, comment is 0, blank is 12.
+server/utils/idmaker.php, code is 7, comment is 0, blank is 0.
+server/utils/mysql.php, code is 43, comment is 54, blank is 12.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2024-07-22 16:05:51
+count workspace : /Users/john/Documents/GitHub/spoons
+total files : 19
+total code lines : 965
+total comment lines : 57
+total blank lines : 139
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .php|            221|              3|             47|     23|
+   |           .txt|             1366|             54|             87|     38|
+   |               |            0|              0|              4|    1.0|
+   |          .json|            366|              0|              1|     38|
+   |            .md|              2|              0|              0|   0.21|
+   -------------------------------------------------------------------------
+.gitattributes, code is 2, comment is 0, blank is 0.
+client/auth/signup.php, code is 20, comment is 0, blank is 0.
+client/game.php, code is 60, comment is 0, blank is 0.
+client/host.php, code is 36, comment is 0, blank is 12.
+dblayout.txt, code is 10, comment is 0, blank is 4.
+LICENSE, code is 219, comment is 3, blank is 47.
+README.md, code is 2, comment is 0, blank is 0.
+server/auth/login.php, code is 13, comment is 0, blank is 4.
+server/auth/signup.php, code is 11, comment is 0, blank is 8.
+server/game/cards.json, code is 366, comment is 0, blank is 1.
+server/game/startup.php, code is 35, comment is 0, blank is 11.
+server/game_lobby.php, code is 11, comment is 0, blank is 6.
+server/handler.php, code is 14, comment is 0, blank is 7.
+server/index.php, code is 16, comment is 0, blank is 1.
+server/utils/creds.php, code is 10, comment is 0, blank is 1.
+server/utils/gameinit.php, code is 5, comment is 0, blank is 2.
+server/utils/gameutils.php, code is 85, comment is 0, blank is 23.
+server/utils/idmaker.php, code is 7, comment is 0, blank is 0.
+server/utils/mysql.php, code is 43, comment is 54, blank is 12.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2024-07-22 17:29:01
+count workspace : /Users/john/Documents/GitHub/spoons
+total files : 19
+total code lines : 971
+total comment lines : 57
+total blank lines : 147
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .txt|             10|              0|              4|    1.0|
+   |               |            221|              3|             47|     23|
+   |          .json|            366|              0|              1|     38|
+   |           .php|            372|             54|             95|     38|
+   |            .md|              2|              0|              0|   0.21|
+   -------------------------------------------------------------------------
+.gitattributes, code is 2, comment is 0, blank is 0.
+client/auth/signup.php, code is 20, comment is 0, blank is 0.
+client/game.php, code is 60, comment is 0, blank is 0.
+client/host.php, code is 35, comment is 0, blank is 13.
+dblayout.txt, code is 10, comment is 0, blank is 4.
+LICENSE, code is 219, comment is 3, blank is 47.
+README.md, code is 2, comment is 0, blank is 0.
+server/auth/login.php, code is 13, comment is 0, blank is 4.
+server/auth/signup.php, code is 20, comment is 0, blank is 11.
+server/game/cards.json, code is 366, comment is 0, blank is 1.
+server/game/startup.php, code is 35, comment is 0, blank is 11.
+server/game_lobby.php, code is 11, comment is 0, blank is 6.
+server/handler.php, code is 14, comment is 0, blank is 7.
+server/index.php, code is 16, comment is 0, blank is 1.
+server/utils/creds.php, code is 10, comment is 0, blank is 1.
+server/utils/gameinit.php, code is 5, comment is 0, blank is 2.
+server/utils/gameutils.php, code is 84, comment is 0, blank is 25.
+server/utils/idmaker.php, code is 6, comment is 0, blank is 0.
+server/utils/mysql.php, code is 43, comment is 54, blank is 14.
+===============================================================================
