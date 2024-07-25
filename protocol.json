@@ -1,0 +1,84 @@
+{ 
+    "protocol": {
+        "request": {
+            "type":"full",
+            "action": "request",
+            "information":1,
+            "game_code":"s84je3"
+        },
+        "request2":{
+            "type":"full",
+            "action": "card to replace",
+            "information":1,
+            "game_code":"s84je3",
+            "data":{
+                "card_id": 1
+            }
+        },
+        "response": {
+            "type":"full",
+            "action": "response",
+            "information":1,
+            "game_code":"s84je3",
+            "data":{
+                "cards": [
+                    {
+                        "id": 1,
+                        "name": "Ace of Clubs",
+                        "svg": "ace_of_clubs.svg",
+                        "value": "ace"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Ace of Hearts",
+                        "svg": "ace_of_hearts.svg",
+                        "value": "ace"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Ace of Diamonds",
+                        "svg": "ace_of_diamonds.svg",
+                        "value": "ace"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Ace of Spades",
+                        "svg": "ace_of_spades2.svg",
+                        "value": "ace"
+                    }
+                ],
+                "spoons_number":5,
+                "players":[
+                    {
+                        "id": 1,
+                        "name": "Player 1",
+                        "has_spoon": true,
+                        "is_you": true
+                    },
+                    {
+                        "id": 2,
+                        "name": "Player 2",
+                        "has_spoon": false,
+                        "is_you": false
+                    },
+                    {
+                        "id": 3,
+                        "name": "Player 3",
+                        "has_spoon": false,
+                        "is_you": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Player 4",
+                        "has_spoon": false,
+                        "is_you": false
+                    }
+                ],
+                "discard_number": 0,
+                "stage": 0
+                
+            }
+
+        }
+    }
+}

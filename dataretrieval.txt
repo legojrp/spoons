@@ -1,0 +1,53 @@
+full data request (reload)
+    - cards
+    - Spoons data
+    - players and have spoons
+    - discard number
+    - anything else
+
+half data request (2)
+    - cards
+    - spoons data
+    - discard number
+
+mini data request (0.5 secs)
+    - spoons data
+    - request staging
+
+
+actions
+
+page load
+    - full data request
+
+card replace
+    - card to replace
+    - half data request
+    
+spoon take
+    - spoon taken
+    - full data request
+
+
+
+
+
+
+
+variable request loads
+    - server driven
+    - based on highest number of cards that are same in a hand - stage five is once one spoon is taken
+    - seconds are based on last request above it, so it wont every 6 secs, only if not requested data in 6 secs
+    - stage one
+        - mini request every 6 sec
+        - half data request every 15 sec or card take
+    - stage two
+        - mini request every 5
+    - stage three 
+        - mini request every 1 sec
+        - half data request every 2 secs
+    - stage four
+        - mini request every 0.5 secs
+    - stage five
+        - mini request every 0.25 secs
+

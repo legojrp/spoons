@@ -1,3 +1,29 @@
+<?php 
+    require_once "../server/utils/creds.php";
+    require_once "../server/utils/mysql.php";
+    require_once "../server/utils/gameutils.php";
+
+    $player_id = $_COOKIE["player_id"];
+    $join_code = $_GET["join_code"];
+
+    $creds = new Creds();
+    $mysql = new MySQLDatabase($creds);
+
+    $gameutils = new GameUtils($join_code);
+
+    echo $gameutils->isHost($player_id);
+    echo "hey";
+    echo $gameutils->isActive();
+    echo "hey";
+
+    if($gameutils->isHost($player_id) && !$gameutils->isActive()) {
+        $gameutils->startGame();
+        echo "success";
+    }
+
+    $gameutils->shuffleCards();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

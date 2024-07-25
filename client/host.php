@@ -38,7 +38,7 @@
     
     <h2 id="players_in_lobby"></h2>
 
-    <a href="start.php?join_code=<?php echo $join_code;?>&<?php echo $player_id;?>">Start Game</a>
+    <a href="game.php?join_code=<?php echo $id;?>">Start Game</a>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 

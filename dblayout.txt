@@ -29,6 +29,11 @@ CREATE TABLE game_list (
     join_code VARCHAR(255) NOT NULL,
     active BOOLEAN DEFAULT TRUE,
     creator_user_id INT,
+    stage_number INT DEFAULT 0,
     FOREIGN KEY (creator_user_id) REFERENCES users(user_id)
 );
+
+
+
+
 

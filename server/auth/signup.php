@@ -12,6 +12,8 @@
 
     $mysql->insert("users", ["username" => $username, "password" => $password, "gamename" => $gamename]);
 
+
+    
     
     
 

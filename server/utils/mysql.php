@@ -90,9 +90,11 @@ class MySQLDatabase {
      * @throws Exception If there is an error executing the SQL query.
      * @return array The result of the query.
      */
-    function query($query) {
-        $result = $this->conn->query($query);
-        return $result->fetch_all(MYSQLI_ASSOC);
+    function query($query, $return) {
+        $result = $this->conn->query($query); 
+        if ($return) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 
         /**

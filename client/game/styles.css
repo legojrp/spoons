@@ -1,0 +1,96 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    width: 80%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.players {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.player {
+    text-align: center;
+}
+
+.player-name {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.player-spoon {
+    font-size: 24px;
+}
+
+.table-spoons {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cards {
+    display: flex;
+    gap: 10px;
+    margin-right: 40px;
+}
+
+.card {
+    width: 50px;
+    height: 70px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+}
+
+.pickup-pile {
+    width: 50px;
+    height: 70px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+}
+
+.pickup-pile-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+}
