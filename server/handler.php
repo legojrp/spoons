@@ -6,9 +6,8 @@ require_once "utils/mysql.php";
 $creds = new Creds();
 $mysql = new MySQLDatabase($creds);
 
-$join_code = $_GET["join_code"];
+$join_code = getGameFromPlayer($_COOKIE["player_id"]);
 $gameutils = new GameUtils($join_code);
-
 
 if (!isset($_POST["action"]) || !isset($_POST["type"])) {
     echo "error";
@@ -16,13 +15,13 @@ if (!isset($_POST["action"]) || !isset($_POST["type"])) {
 
 $information_number = $_POST["information"];
 $action = $_POST["action"];
-$type = $_POST["request_type"];
+$type = $_POST["type"];
 
-$player_id = $_COOKIE["player_id"];
+$player_id = $gameutils->getPlayerID($_COOKIE["player_id"]);
 
 global $gameutils, $player_id;
 
-$actionDone = doAction($action, $player_id, $information_number, $type, $gameutils);
+$actionDone = doAction($action, $player_id, $type, $gameutils);
 
 $data = makeRequest($player_id, $type, $gameutils, $action, $actionDone);
 
@@ -41,15 +40,24 @@ function doAction($action, $player_id, $type, $gameutils) {
     
     if ($action == "card replace") {
         $card_id = $_POST["data"]["card_id"];
+        if ($gameutils->getDiscardCount($player_id) == 0) {
+            return "no more cards to replace";
+        }
         $gameutils->cycle($player_id, $card_id);
         return "card replace";
     }
 
     if ($action == "spoon take") {
-        $gameutils->takeSpoon($player_id);
-        return "spoon take";
+        if ($gameutils->countMaxCards($player_id) == 4 && $gameutils->getSpoonCount($player_id) > 0) {
+            $gameutils->takeSpoon($player_id);
+            return "spoon take";
+        }
+        else {
+            return "no spoon or not enough cards";
+        }
+
     }
-    
+
     return "error";
     
 
@@ -126,4 +134,17 @@ function makeRequest($player_id, $type, $gameutils, $action, $actionDone) {
 
     return $data;
 
+}
+
+
+function getGameFromPlayer($player_id) {
+    $creds = new Creds();
+    $mysql = new MySQLDatabase($creds);
+
+    return $mysql->select("users", "in_game", " WHERE user_id = '" . $player_id . "'")[0]["in_game"];
+}
+
+
+function detectWin($gameutils) {
+    return $gameutils->getSpoonCount() == 0;
 }

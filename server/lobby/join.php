@@ -38,7 +38,7 @@ echo "joined $id";
                 type: 'GET',
                 success: function(response) {
                     if (response == "true") {
-                        window.location.href = "../../client/game.php?join_code=" + "<?php echo $id; ?>";
+                        window.location.href = "../../client/game/game.php?join_code=" + "<?php echo $id; ?>";
                     }
                 }
             });

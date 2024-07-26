@@ -54,7 +54,7 @@ class GameUtils {
      */
     function getNextPlayer($player_id) {
         $next = $player_id + 1;
-        if ($next > $this->getNumPlayers() - 1) {
+        if ($next > $this->getNumPlayers()) {
             $next = 1;
         }
         return $next;
@@ -119,7 +119,7 @@ class GameUtils {
      *
      * @return int The number of spoons left.
      */
-    function numSpoonsLeft() {
+    function getSpoonCount() {
         $players = $this->mysql->select("game_$this->id", "has_spoon");
         $num_spoons = 0;
         foreach ($players as $player) {
@@ -136,7 +136,7 @@ class GameUtils {
      * @return bool Returns true if the end of the round has been reached, false otherwise.
      */
     function checkForEndOfRound() {
-        if ($this->numSpoonsLeft() == 0) {
+        if ($this->getSpoonCount() == 0) {
             return true;
         }
         return false;
@@ -186,8 +186,8 @@ class GameUtils {
         $creds = new Creds();
         $mysql = new MySQLDatabase($creds);
         $mysql->createTable("cards_$this->id", "card_id int(11) NOT NULL AUTO_INCREMENT, card_loc varchar(255) NOT NULL, card_name varchar(255) NOT NULL, card_value VARCHAR(255) NOT NULL, PRIMARY KEY (card_id)");
-        
-        $cards = json_decode(file_get_contents("../server/utils/cards.json"), true);
+        $cards = json_decode(file_get_contents("../../server/utils/cards.json"), true);
+
         foreach ($cards as $card) {
             $mysql->insert("cards_$this->id", array(
                 "card_loc" => $card["location"],
@@ -217,7 +217,7 @@ class GameUtils {
 
         
         for ($i = 0; $i < count($players); $i++) {
-            for ($j = 0; $j < 4; $j++) {
+            for ($j = 0; $j < 5; $j++) {
                 $random_index = rand(1, 52);
                 if ($mysql->select("cards_$this->id", "card_loc", "WHERE card_id = $random_index")[0]["card_loc"] == "deck") {
                     $mysql->update("cards_$this->id", array("card_loc" => "hand_" . $players[$i]["player_id"]) , "card_id = $random_index");
@@ -227,6 +227,8 @@ class GameUtils {
                 }
             }
         }
+
+        $this->deckToDiscard1();
     }
 
     /**
@@ -326,17 +328,47 @@ class GameUtils {
     }
 
     function getActivePlayers() {
-        return $this->mysql->select("game_$this->id", "*", "WHERE role = 'active'");
+        $players =  $this->mysql->select("game_$this->id", "*", "WHERE role = 'active'");
+        $players2 = array();
+        foreach ($players as $player) {
+            $player["gamename"] = $this->getPlayerName($player["player_id"]);
+            array_push($players2, $player);
+        }
+        return $players2;
     }
 
     function getDiscardCount($player_id) {
         return $this->mysql->select("cards_$this->id", "count(card_id) as count", "WHERE card_loc = 'discard_$player_id'")[0]["count"];
-    
    }
 
    function getSpoonPlayers() {
     return $this->mysql->select("game_$this->id", "has_spoon");
    }
 
-   
+   function getPlayerID($user_id) {
+    return $this->mysql->select("game_$this->id", "player_id", "WHERE user_id = '$user_id'")[0]["player_id"];
+   }
+
+   function getPlayerName($player_id){
+    return $this->mysql->select("users", "gamename", "WHERE user_id = '" .$this->getUserID($player_id) . "'")[0]["gamename"];
+   }
+
+   function getUserID($player_id) {
+    return $this->mysql->select("game_$this->id", "user_id", "WHERE player_id = '$player_id'")[0]["user_id"];
+   }
+
+    function deckToDiscard1() {
+        return $this->mysql->update("cards_$this->id", array("card_loc" => "discard_1"), "card_loc = 'deck'");
+    }
+
+    function countMaxCards($player_id) {
+        $cards = $this->mysql->select("cards_$this->id", "card_value, count(card_id) as count", "WHERE card_loc = 'hand_" . $player_id . "' GROUP BY card_value");
+            $count = 0;
+            foreach ($cards as $card) {
+                if ($card["count"] > $count) {
+                    $count = $card["count"];
+                }
+            }
+            return $count;
+    }
 }

@@ -11,17 +11,11 @@
 
     $gameutils = new GameUtils($join_code);
 
-    echo $gameutils->isHost($player_id);
-    echo "hey";
-    echo $gameutils->isActive();
-    echo "hey";
-
     if($gameutils->isHost($player_id) && !$gameutils->isActive()) {
         $gameutils->startGame();
-        echo "success";
+        $gameutils->shuffleCards();
     }
 
-    $gameutils->shuffleCards();
 ?>
 
 <!DOCTYPE html>

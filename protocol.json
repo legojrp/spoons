@@ -23,53 +23,55 @@
             "data":{
                 "cards": [
                     {
-                        "id": 1,
-                        "name": "Ace of Clubs",
-                        "svg": "ace_of_clubs.svg",
-                        "value": "ace"
+                        "card_id": 1,
+                        "card_name": "Ace of Clubs",
+                        "card_value": "ace"
                     },
                     {
                         "id": 2,
                         "name": "Ace of Hearts",
-                        "svg": "ace_of_hearts.svg",
                         "value": "ace"
                     },
                     {
                         "id": 3,
                         "name": "Ace of Diamonds",
-                        "svg": "ace_of_diamonds.svg",
                         "value": "ace"
                     },
                     {
                         "id": 4,
                         "name": "Ace of Spades",
-                        "svg": "ace_of_spades2.svg",
                         "value": "ace"
+                    },
+                    {
+                        "id": 5,
+                        "name": "2 of Clubs",
+                        "value": "2"
                     }
+
                 ],
                 "spoons_number":5,
                 "players":[
                     {
-                        "id": 1,
-                        "name": "Player 1",
+                        "player_id": 1,
+                        "gamename": "Player 1",
                         "has_spoon": true,
                         "is_you": true
                     },
                     {
-                        "id": 2,
-                        "name": "Player 2",
+                        "player_id": 2,
+                        "gamename": "Player 2",
                         "has_spoon": false,
                         "is_you": false
                     },
                     {
-                        "id": 3,
-                        "name": "Player 3",
+                        "player_id": 3,
+                        "gamename": "Player 3",
                         "has_spoon": false,
                         "is_you": false
                     },
                     {
-                        "id": 4,
-                        "name": "Player 4",
+                        "player_id": 4,
+                        "gamename": "Player 4",
                         "has_spoon": false,
                         "is_you": false
                     }

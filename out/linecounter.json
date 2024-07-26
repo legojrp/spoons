@@ -720,6 +720,460 @@
                     "filename": "server/utils/removal.php"
                 }
             ]
+        },
+        {
+            "version": "0.2.7",
+            "counttime": "2024-07-25 17:40:03",
+            "filesum": 30,
+            "codesum": 1559,
+            "commentsum": 219,
+            "blanksum": 298,
+            "statistics": {
+                ".php": {
+                    "code": 644,
+                    "comment": 205,
+                    "blank": 175
+                },
+                ".css": {
+                    "code": 131,
+                    "comment": 1,
+                    "blank": 21
+                },
+                ".js": {
+                    "code": 48,
+                    "comment": 10,
+                    "blank": 25
+                },
+                "": {
+                    "code": 221,
+                    "comment": 3,
+                    "blank": 47
+                },
+                ".md": {
+                    "code": 2,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".json": {
+                    "code": 448,
+                    "comment": 0,
+                    "blank": 3
+                },
+                ".txt": {
+                    "code": 65,
+                    "comment": 0,
+                    "blank": 27
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": ".gitattributes"
+                },
+                {
+                    "blank": 1,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "client/auth/login.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/auth/signup.php"
+                },
+                {
+                    "blank": 7,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "client/game.php"
+                },
+                {
+                    "blank": 15,
+                    "code": 32,
+                    "comment": 4,
+                    "filename": "client/game/client.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 16,
+                    "comment": 6,
+                    "filename": "client/game/dataProcess.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "client/game/game.php"
+                },
+                {
+                    "blank": 21,
+                    "code": 131,
+                    "comment": 1,
+                    "filename": "client/game/styles.css"
+                },
+                {
+                    "blank": 13,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "client/host.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/index.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/join.php"
+                },
+                {
+                    "blank": 15,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "dataretrieval.txt"
+                },
+                {
+                    "blank": 12,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "dblayout.txt"
+                },
+                {
+                    "blank": 47,
+                    "code": 219,
+                    "comment": 3,
+                    "filename": "LICENSE"
+                },
+                {
+                    "blank": 2,
+                    "code": 82,
+                    "comment": 0,
+                    "filename": "protocol.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 5,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "server/auth/common.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "server/auth/login.php"
+                },
+                {
+                    "blank": 10,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "server/auth/signup.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "server/game_lobby.php"
+                },
+                {
+                    "blank": 44,
+                    "code": 72,
+                    "comment": 13,
+                    "filename": "server/handler.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "server/index.php"
+                },
+                {
+                    "blank": 10,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "server/lobby/join.php"
+                },
+                {
+                    "blank": 3,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "server/lobby/ready.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 366,
+                    "comment": 0,
+                    "filename": "server/utils/cards.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "server/utils/creds.php"
+                },
+                {
+                    "blank": 8,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "server/utils/gameinit.php"
+                },
+                {
+                    "blank": 40,
+                    "code": 164,
+                    "comment": 138,
+                    "filename": "server/utils/gameutils.php"
+                },
+                {
+                    "blank": 14,
+                    "code": 45,
+                    "comment": 54,
+                    "filename": "server/utils/mysql.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "server/utils/removal.php"
+                }
+            ]
+        },
+        {
+            "version": "0.2.7",
+            "counttime": "2024-07-25 18:46:17",
+            "filesum": 30,
+            "codesum": 1602,
+            "commentsum": 213,
+            "blanksum": 310,
+            "statistics": {
+                ".css": {
+                    "code": 131,
+                    "comment": 1,
+                    "blank": 21
+                },
+                ".js": {
+                    "code": 91,
+                    "comment": 4,
+                    "blank": 35
+                },
+                ".php": {
+                    "code": 643,
+                    "comment": 205,
+                    "blank": 176
+                },
+                "": {
+                    "code": 221,
+                    "comment": 3,
+                    "blank": 47
+                },
+                ".json": {
+                    "code": 449,
+                    "comment": 0,
+                    "blank": 4
+                },
+                ".md": {
+                    "code": 2,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".txt": {
+                    "code": 65,
+                    "comment": 0,
+                    "blank": 27
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": ".gitattributes"
+                },
+                {
+                    "blank": 1,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "client/auth/login.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/auth/signup.php"
+                },
+                {
+                    "blank": 7,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "client/game.php"
+                },
+                {
+                    "blank": 15,
+                    "code": 32,
+                    "comment": 4,
+                    "filename": "client/game/client.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 59,
+                    "comment": 0,
+                    "filename": "client/game/dataProcess.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "client/game/game.php"
+                },
+                {
+                    "blank": 21,
+                    "code": 131,
+                    "comment": 1,
+                    "filename": "client/game/styles.css"
+                },
+                {
+                    "blank": 13,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "client/host.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/index.php"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/join.php"
+                },
+                {
+                    "blank": 15,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "dataretrieval.txt"
+                },
+                {
+                    "blank": 12,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "dblayout.txt"
+                },
+                {
+                    "blank": 47,
+                    "code": 219,
+                    "comment": 3,
+                    "filename": "LICENSE"
+                },
+                {
+                    "blank": 3,
+                    "code": 83,
+                    "comment": 0,
+                    "filename": "protocol.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 5,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "server/auth/common.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "server/auth/login.php"
+                },
+                {
+                    "blank": 10,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "server/auth/signup.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "server/game_lobby.php"
+                },
+                {
+                    "blank": 44,
+                    "code": 72,
+                    "comment": 13,
+                    "filename": "server/handler.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "server/index.php"
+                },
+                {
+                    "blank": 10,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "server/lobby/join.php"
+                },
+                {
+                    "blank": 3,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "server/lobby/ready.php"
+                },
+                {
+                    "blank": 1,
+                    "code": 366,
+                    "comment": 0,
+                    "filename": "server/utils/cards.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "server/utils/creds.php"
+                },
+                {
+                    "blank": 8,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "server/utils/gameinit.php"
+                },
+                {
+                    "blank": 40,
+                    "code": 164,
+                    "comment": 138,
+                    "filename": "server/utils/gameutils.php"
+                },
+                {
+                    "blank": 14,
+                    "code": 45,
+                    "comment": 54,
+                    "filename": "server/utils/mysql.php"
+                },
+                {
+                    "blank": 5,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "server/utils/removal.php"
+                }
+            ]
         }
     ]
 }

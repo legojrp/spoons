@@ -1,15 +1,20 @@
 function processResponse (response) {
     // TODO
-    response = JSON.parse(response);
-    if (response.error != "none"){
-        alert(response.error);
+    if (!typeof response === 'string' || !response.startsWith('{') && response.endsWith('}')){
+        console.error(response);
         return;
     }
+
+    response = JSON.parse(response);
+    // if (response.error != "none"){
+    //     alert(response.error);
+    //     return;
+    // }
 
     if (response.type == "full") {
         setCards(response.data.cards);
         setSpoonCount(response.data.spoons_number);
-        setActivePlayers(response.data.players);
+        setPlayerSet(response.data.players);
         setDiscardCount(response.data.discard_number);
         setStage(response.data.stage);
     }
@@ -28,15 +33,19 @@ function processResponse (response) {
         setStage(response.data.stage);
     }
 
-
-
-
-
 }
 
 
 function sendCardToReplace (card_id) {
-    // TODO
+    request = {
+        type: "half",
+        action: "card replace",
+        information: 1,
+        data: {
+            card_id: card_id
+        }
+    }
+    send(request);
 }
 
 function sendPageLoad () {
@@ -44,8 +53,37 @@ function sendPageLoad () {
 }
 
 function sendSpoonTake () {
-    // TODO
+    request = {
+        type: "half",
+        action: "spoon take",
+        information: 1
+    }
+
+    send(request);
 }
+
+function sendRequest (type){
+    request = {
+        type: type,
+        action: "request",
+        information: 1
+    }
+
+    send(request);
+ }
+
+ function send(request) {
+    $.ajax({
+        url: "/server/handler.php",
+        type: "POST",
+        data: request,
+        success: function (response) {
+            processResponse(response);
+        }
+        
+    });
+ }
+
 
 
 
