@@ -82,7 +82,7 @@ function sendRequest (type){
 
  function send(request) {
     $.ajax({
-        url: "/server/handler.php",
+        url: "../../server/handler.php",
         type: "POST",
         data: request,
         success: function (response) {
