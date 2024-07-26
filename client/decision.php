@@ -7,7 +7,6 @@
 </head>
 <body>
     <h1>Hey guys! Host or Join</h1>
-    <input type="text" name="playerName" id="playerName">
     <div>
         <a href="../../client/host.php">Host</a>
         <a href="../../client/join.php">Join</a>

@@ -8,6 +8,23 @@ $mysql = new MySQLDatabase($creds);
 
 $join_code = getGameFromPlayer($_COOKIE["player_id"]);
 $gameutils = new GameUtils($join_code);
+if (!$gameutils->isPlayerInGame($_COOKIE["player_id"])) {
+    
+    $action = "out";
+    echo json_encode(array("action" => $action, "game_code" => $join_code));
+    exit();
+}
+if ($gameutils->getNumPlayers() == 1) {
+    if ($gameutils->isPlayerInGame($_COOKIE["player_id"])) {
+        $action = "win";
+        $gameutils->endGame();
+        echo json_encode(array("action" => $action, "game_code" => $join_code));
+        exit();
+
+    }
+}
+
+
 
 if (!isset($_POST["action"]) || !isset($_POST["type"])) {
     echo "error";
@@ -24,6 +41,8 @@ global $gameutils, $player_id;
 $actionDone = doAction($action, $player_id, $type, $gameutils);
 
 $data = makeRequest($player_id, $type, $gameutils, $action, $actionDone);
+
+detectRoundOver($gameutils);
 
 $response = array();
 $response["data"] = $data;
@@ -48,19 +67,16 @@ function doAction($action, $player_id, $type, $gameutils) {
     }
 
     if ($action == "spoon take") {
-        if ($gameutils->countMaxCards($player_id) == 4 && $gameutils->getSpoonCount($player_id) > 0) {
+        if ($gameutils->countMaxCards($player_id) == 4 || $gameutils->getSpoonCount($player_id) < $gameutils->getNumPlayers() - 1) {
             $gameutils->takeSpoon($player_id);
             return "spoon take";
         }
         else {
             return "no spoon or not enough cards";
         }
-
     }
 
     return "error";
-    
-
 }
 
 function makeRequest($player_id, $type, $gameutils, $action, $actionDone) {
@@ -136,7 +152,6 @@ function makeRequest($player_id, $type, $gameutils, $action, $actionDone) {
 
 }
 
-
 function getGameFromPlayer($player_id) {
     $creds = new Creds();
     $mysql = new MySQLDatabase($creds);
@@ -144,7 +159,9 @@ function getGameFromPlayer($player_id) {
     return $mysql->select("users", "in_game", " WHERE user_id = '" . $player_id . "'")[0]["in_game"];
 }
 
+function detectRoundOver($gameutils) {
+    if ($gameutils->getSpoonCount() == 0) {
+        $gameutils->nextRound();
+    }
 
-function detectWin($gameutils) {
-    return $gameutils->getSpoonCount() == 0;
 }

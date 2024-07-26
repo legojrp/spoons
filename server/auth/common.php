@@ -14,4 +14,4 @@
     }
     
 
-require_once "../../server/index.php";
+require_once "../../client/decision.php";

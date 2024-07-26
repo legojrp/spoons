@@ -2,21 +2,27 @@
 $player_id = $_COOKIE["player_id"];
 $id = $_GET["join_code"];
 
-require "../utils/creds.php";
-require "../utils/mysql.php";
+require_once "../utils/creds.php";
+require_once "../utils/mysql.php";
+require_once "../utils/gameutils.php";
 
 $creds = new Creds();
 $mysql = new MySQLDatabase($creds);
+$gameutils = new GameUtils($id);
 
 if (!$mysql->select("game_list", "active", "WHERE join_code = '$id'")[0]) {
     echo "Game not found";
     require "../../client/join.php";
 }
 
-$mysql->update("users", array("in_game" => "$id"), "user_id = $player_id");
-$mysql->insert("game_$id", array("user_id" => $player_id));
 
-echo "joined $id";
+if (isset($mysql->select("game_$id", "user_id", "WHERE user_id = $player_id")[0])) {
+    echo "Already in game";
+}
+else {
+    $gameutils->playerJoined($player_id);
+    echo "joined $id";
+}
 ?>
 
 

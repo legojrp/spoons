@@ -12,4 +12,5 @@ $tables = $mysql->select("information_schema.tables", "table_name", "WHERE table
 foreach ($tables as $table) {
     if (isset($table["TABLE_NAME"]))
         $mysql->query("DROP TABLE " . $table["TABLE_NAME"], false);
+        echo "dropped " . $table["TABLE_NAME"] . "\n";
 }

@@ -151,7 +151,7 @@ class GameUtils {
      * @return void
      */
     function playerJoined($player_id) {
-        $this->mysql->insert("game_$this->id", array("user_id" => $player_id));
+        $this->mysql->insert("game_$this->id", array("user_id" => $player_id, "player_id" => $this->getNumPlayers() + 1));
         $this->mysql->update("users", array("in_game" => "$this->id"), "user_id = $player_id");
     }
 
@@ -371,4 +371,49 @@ class GameUtils {
             }
             return $count;
     }
+    
+
+    function nextRound() {
+        $player_id = $this->mysql->select("game_$this->id", "player_id", "WHERE has_spoon = 0")[0]["player_id"];
+
+        $this->mysql->delete("game_$this->id", "player_id = $player_id");
+
+        $this->mysql->update("game_$this->id", array("has_spoon" => "0"), "has_spoon = 1");
+
+        $this->sortPlayersAgain();
+
+        $this->shuffleCards();
+
+        $this->checkStage();
+    
+    }
+
+    function endGame() {
+        $user_id = $this->mysql->select("game_$this->id", "user_id")[0]["user_id"];
+        $num_wins = $this->mysql->select("users", "num_wins", "WHERE user_id = $user_id")[0]["num_wins"];
+        $this->mysql->update("users", array("num_wins" => $num_wins+1), "user_id = $user_id");
+        // $this->mysql->query("Drop table game_$this->id", false);
+        // $this->mysql->query("Drop table cards_$this->id", false);
+        // $this->mysql->delete("game_list", "join_code = '$this->id'");
+        
+    }
+
+    function isPlayerInGame($user_id) {
+        $in_game = $this->mysql->select("game_$this->id", "user_id", "WHERE user_id = $user_id");
+        if (isset($in_game[0])) {
+            return true;
+        }
+        return false;
+    }
+
+    function sortPlayersAgain() {
+        $players = $this->mysql->select("game_$this->id", "player_id, user_id");
+        sort($players);
+        foreach ($players as $index => $player) {
+            $this->mysql->update("game_$this->id", array("player_id" => $index+1), "user_id = " . $player["user_id"]);
+        }
+        
+    }
+
+
 }

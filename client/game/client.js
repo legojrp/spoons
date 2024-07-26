@@ -11,6 +11,14 @@ function processResponse (response) {
     //     return;
     // }
 
+    if (response.action == "out"){
+        window.location.href = './spectate.php?join_code=' + response.game_code;
+    }
+
+    if (response.action == "win"){
+        window.location.href = './win.php?join_code=' + response.game_code;
+    }
+
     if (response.type == "full") {
         setCards(response.data.cards);
         setSpoonCount(response.data.spoons_number);
@@ -38,7 +46,7 @@ function processResponse (response) {
 
 function sendCardToReplace (card_id) {
     request = {
-        type: "half",
+        type: "full",
         action: "card replace",
         information: 1,
         data: {
@@ -54,7 +62,7 @@ function sendPageLoad () {
 
 function sendSpoonTake () {
     request = {
-        type: "half",
+        type: "full",
         action: "spoon take",
         information: 1
     }

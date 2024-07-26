@@ -6,8 +6,17 @@
     <title>Index</title>
 </head>
 <body>
-    <a href="auth/login.php">Log In</a>
-    <a href="auth/signup.php">Sign Up</a>
-    
+    <?php 
+    if (isset($_COOKIE["player_id"])) {
+        require "./decision.php";
+    }
+    else {
+        echo "<h1>Not Logged In</h1>";
+    echo "<a href=\"auth/login.php\">Log In</a>";
+    echo "<br>";
+    echo "<a href=\"auth/signup.php\">Sign Up</a>";
+
+    }
+    ?>
 </body>
 </html>
